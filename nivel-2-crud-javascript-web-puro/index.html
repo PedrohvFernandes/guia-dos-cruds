@@ -28,8 +28,11 @@
                 miniRedeSocial.criaPost({ id, owner: owner, content: content }, true);
             })
         },
+        // O parametro htmlOnly impede do readPosts criar um novo post na memoria, o estado inicial do htmlOnly é false, mas que é mudado ao vir do readPosts para true, que faz com que crie somente no HTML
         criaPost(dados, htmlOnly = false) {
+            console.log(miniRedeSocial.posts)
             const idInternoAqui = Date.now();
+            // A gente espera um false, para nao criar um novo post na memoria.
             if (!htmlOnly) {
                 // Cria Posts na Memória (Array/Objeto)
                 miniRedeSocial.posts.push({
